@@ -11,7 +11,6 @@
  */
 
 // @ts-ignore
-import {flushSync} from 'react-dom';
 import {getScrollLeft} from './utils';
 import React, {
   CSSProperties,
@@ -75,7 +74,7 @@ function ScrollView(props: ScrollViewProps, ref: RefObject<HTMLDivElement>) {
       props.onScroll(e);
     }
 
-    flushSync(() => {
+    useEffect(() => {
       let scrollTop = e.currentTarget.scrollTop;
       let scrollLeft = getScrollLeft(e.currentTarget, direction);
 
